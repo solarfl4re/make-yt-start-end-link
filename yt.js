@@ -1,3 +1,5 @@
+let yVideos = [];
+
 function setup() {
   let ytURL = '';
   let player;
@@ -13,6 +15,10 @@ function setup() {
 
   let ytForm = document.getElementById('ytUrlForm');
   ytForm.addEventListener('submit', loadVideo);
+
+  document.getElementById('setStartButton').addEventListener('click', setTime);
+  document.getElementById('setEndButton').addEventListener('click', setTime);
+  document.getElementById('testEmbed').addEventListener('click', embedVideo);
 }
 	
       function onYouTubeIframeAPIReady() {
@@ -49,6 +55,9 @@ function setup() {
     let ytId = getYtId(ytInput)
     player.loadVideoById(ytId)
     event.preventDefault();
+
+    //Add to video array
+    yVideos.push({vID: ytId});
 	}
 
 function testGetYtUrl() {
@@ -58,6 +67,26 @@ function testGetYtUrl() {
   // Test YT url parse
   console.log(getYtId(ytUrl1));
   console.log(getYtId(ytUrl2));
+}
+
+function setTime(event) {
+  let n = '';
+  if (event.srcElement.id.indexOf('Start') !== -1) {
+    n = 'start';
+  } else {
+    n = 'end';
+  }
+
+  // set the start time here
+  let t = player.getCurrentTime().toFixed();
+  yVideos[yVideos.length -1][n] = t;
+}
+
+function embedVideo() {
+  // embed video in div #embedTest here
+  // Sample embed code:
+  // <iframe width="560" height="315" src="https://www.youtube.com/embed/ht4JtEbFtFI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  document.getElementById("embedTest").innerHTML = `<iframe width="560" height="315" src="https://www.youtube.com/embed/${yVideos[0].vID}?start=${yVideos[0].start}&end=${yVideos[0].end}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`
 }
 
 window.addEventListener('load', setup);
