@@ -4,6 +4,9 @@
 // with markers?)
 // Show URL, add 'copy to clipboard' button. + show instructions on how to add to Ghost
 // -> ? On 'replay', play from start --- end (site wide script?)
+// 3.9:
+// - translate to Ukrainian
+// - show embed code to copy
 let yVideo = {};
 
 function setup() {
@@ -103,6 +106,10 @@ function updateURL() {
 
     urlDiv.value = url;
 
+    // Embed
+    let embedDiv = document.getElementById('embedCode');
+    embedDiv.value = getEmbedCode();
+
 }
 
 function copyURL(event) {
@@ -114,7 +121,11 @@ function embedVideo() {
     // embed video in div #embedTest here
     // Sample embed code:
     // <iframe width="560" height="315" src="https://www.youtube.com/embed/ht4JtEbFtFI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-    document.getElementById("embedTest").innerHTML = `<iframe width="560" height="315" src="https://www.youtube.com/embed/${yVideo.vID}?start=${yVideo.start}&end=${yVideo.end}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`
+    document.getElementById("embedTest").innerHTML = getEmbedCode()
+}
+
+function getEmbedCode() {
+    return `<iframe width="560" height="315" src="https://www.youtube.com/embed/${yVideo.vID}?start=${yVideo.start}&end=${yVideo.end}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
 }
 
 window.addEventListener('load', setup);
