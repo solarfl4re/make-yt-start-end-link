@@ -28,7 +28,8 @@ function setup() {
     document.getElementById('setStartButton').addEventListener('click', setTime);
     document.getElementById('setEndButton').addEventListener('click', setTime);
     document.getElementById('testEmbed').addEventListener('click', embedVideo);
-    document.getElementById('copy').addEventListener('click', copyURL);
+    //document.getElementById('copy').addEventListener('click', copyURL);
+    document.getElementById('copyEmbed').addEventListener('click', copyURL);
 }
 
 function onYouTubeIframeAPIReady() {
@@ -101,10 +102,10 @@ function setTime(event) {
 function updateURL() {
     // takes a time in seconds and updates the current output URL
     // url https://www.youtube.com/embed/ht4JtEbFtFI?start=53&end=59
-    let urlDiv = document.getElementById('shareURL');
-    let url = `https://www.youtube.com/embed/${yVideo.vID}?start=${yVideo.start ? yVideo.start : ""}&end=${yVideo.end ? yVideo.end : ""}`;
+    //let urlDiv = document.getElementById('shareURL');
+    //let url = `https://www.youtube.com/embed/${yVideo.vID}?start=${yVideo.start ? yVideo.start : ""}&end=${yVideo.end ? yVideo.end : ""}`;
 
-    urlDiv.value = url;
+    //urlDiv.value = url;
 
     // Embed
     let embedDiv = document.getElementById('embedCode');
@@ -113,7 +114,7 @@ function updateURL() {
 }
 
 function copyURL(event) {
-    document.getElementById('shareURL').select();
+    document.getElementById('embedCode').select();
     document.execCommand('copy');
 }
 
