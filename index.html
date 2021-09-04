@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
-    <title>Make YT Clip</title>
+    <title>Взяти шматок відео з YouTube</title>
     <meta name="HandheldFriendly" content="True" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
@@ -14,34 +14,31 @@
 
 </head>
 <body>
+  <div id="content" >
   <form id="ytUrlForm">
     <input id="ytUrlInput">
-            <input type="submit">
+            <input type="submit" value="Знайти відео">
   </form>
 
   <div id="player">
-      
   </div>
 
   <div id="controls">
-    <input id="setStartButton" type="button" value="Set start">
-    <input id="setEndButton" type="button" value="Set end">
-    <input id="testEmbed" type="button" value="Test Embed">
+    <input id="setStartButton" type="button" value="⊢ 00:00">
+    <input id="setEndButton" type="button" value="00:00 ⊣">
+    <input id="testEmbed" type="button" value="Попередний перегляд">
 
   </div>
-  <div>
-      <p>Start: <span id="start">-</span> seconds</p>
-      <p>End: <span id="end">-</span> seconds</p>
   <!--  <div>
           <label>Share URL: <input id="shareURL" type="text"></input></label><input id="copy" type="button" value="Copy URL" ></input>
       </div> -->
-      <div>
-          <label>Embed code: <input id="embedCode" type="text"></input></label><input id="copyEmbed" type="button" value="Copy Embed Code" ></input>
+      <div id="embed">
+          <label>Код для вставлення: <input id="embedCode" type="text"></input></label><input id="copyEmbed" type="button" value="Копювати" ></input>
       </div>
-  </div>
 
   <div id="embedTest">
   </div>
+</div>
 
 </body>
 </html>

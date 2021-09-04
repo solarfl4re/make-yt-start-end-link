@@ -1,3 +1,68 @@
-#shareURL {
-    width: 60%
+/*
+New colors:
+BG #E0E0E1
+Text? #262626
+Highlight #FC6932
+*/
+
+/* Variables */
+:root {
+  --bg: #FFFFFF;
+  --text: #262626;
+  --highlight: #FC6932;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+
+body {
+  word-break: break-word;
+  font-family: 'Avenir Next', 'HelveticaNeue-Light', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 1.15em;
+  line-height: 1.6;
+}
+
+input {
+    font-size: 1em;
+    margin-right: 0.5em;
+}
+
+iframe {
+  width: 100%;
+  max-width: 640px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+form {
+    display: flex;
+    margin: 0.5em 0.5em;
+}
+
+#ytUrlInput {
+    flex: 2;
+}
+
+#controls, #embed {
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+}
+
+#embed {
+    margin: 1em;
+}
+
+#container {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 640px;
 }

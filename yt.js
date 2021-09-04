@@ -5,8 +5,20 @@
 // Show URL, add 'copy to clipboard' button. + show instructions on how to add to Ghost
 // -> ? On 'replay', play from start --- end (site wide script?)
 // 3.9:
-// - translate to Ukrainian
-// - show embed code to copy
+// - translate to Ukrainian DONE
+// - show embed code to copy DONE
+// - if seconds > 60, divide by 60 & display minutes & seconds
+//   e.g. 140 = 2:
+// - buttons & stuff start out disabled - so we see
+//1. URL input & submit button
+//2. on submit: enable video, set start & end, and preview
+
+//when start or end b pressed:
+//    - get time (seconds)
+//    - make date w/ seconds*1000
+//    - get seconds:minutes
+//    - set button to "Start|End {sec}:{min}"
+
 let yVideo = {};
 
 function setup() {
@@ -80,23 +92,36 @@ function testGetYtUrl() {
 }
 
 function setTime(event) {
-    let t = player.getCurrentTime().toFixed();
+    let seconds = player.getCurrentTime().toFixed();
+    let t = new Date(seconds*1000);
 
-    let n = '';
-    if (event.srcElement.id.indexOf('Start') !== -1) {
-        n = 'start';
-    } else {
-        n = 'end';
-    }
+    //let n = '';
+    //if (event.srcElement.id.indexOf('Start') !== -1) {
+    //    n = 'Start';
+    //} else {
+    //    n = 'End';
+    //}
 
     // Update the displayed start or end
-    document.getElementById(n).innerText = t;
+    this.value = `${t.getUTCHours()}:${padString(t.getUTCMinutes())}:${padString(t.getUTCSeconds())}`;
+
+    if (this['id'] == 'setStartButton') {
+        this.value = ('⊢' + this.value);
+        n = 'Start';
+    } else {
+        this.value = (this.value + '⊣');
+        n = 'End';
+    }
 
 
     // set the start time here
-    yVideo[n] = t;
+    yVideo[n] = seconds;
 
     updateURL();
+}
+
+function padString(n) {
+    return String(n).padStart(2, '0');
 }
 
 function updateURL() {
@@ -126,7 +151,7 @@ function embedVideo() {
 }
 
 function getEmbedCode() {
-    return `<iframe width="560" height="315" src="https://www.youtube.com/embed/${yVideo.vID}?start=${yVideo.start}&end=${yVideo.end}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
+    return `<iframe width="560" height="315" src="https://www.youtube.com/embed/${yVideo.vID}?start=${yVideo.Start}&end=${yVideo.End}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
 }
 
 window.addEventListener('load', setup);
