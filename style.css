@@ -14,6 +14,7 @@ Highlight #FC6932
 
 * {
   margin: 0;
+  margin-bottom: 0.3em;
   padding: 0;
 }
 
@@ -31,7 +32,7 @@ body {
 
 input {
     font-size: 1em;
-    margin: 0.5em;
+    /* margin: 0.5em; */
 }
 
 iframe {
@@ -43,27 +44,41 @@ iframe {
 
 form {
     display: flex;
-    margin: 0.5em 0.5em;
+    /* margin: 0.5em 0.5em; */
 }
 
 #ytUrlInput {
     flex: 2;
 }
 
-#controls, #embed, #ytUrlForm {
+#timeControls, #embedControls, #embed, #ytUrlForm {
     display: flex;
-    flex-wrap: wrap;
-    align-items: stretch;
-    justify-content: center;
+}
+
+#setStartButton, #setEndButton {
+    margin-left: 0.3em;
+    margin-right: 0.3em;
+}
+
+#ytUrlForm {
+    margin-top: 0.6em;
 }
 
 #embed {
-    margin: 1em;
+    /* margin: 1em; */
 }
 
 #content {
     width: 100%;
+    max-width: 640px;
+}
+
+.center {
     margin-left: auto;
     margin-right: auto;
-    max-width: 640px;
+}
+
+.flex-center {
+    align-items: stretch;
+    justify-content: center;
 }

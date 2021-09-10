@@ -14,19 +14,23 @@
 
 </head>
 <body>
-  <div id="content" >
+  <div id="content" class="center">
   <form id="ytUrlForm">
-    <input id="ytUrlInput">
-            <input type="submit" value="Знайти відео">
+      <input id="ytUrlInput"></input>
+      <input type="submit" value="Знайти відео"></input>
   </form>
 
   <div id="player">
   </div>
 
   <div id="controls">
-    <input id="setStartButton" type="button" value="⊢ 0:00:00">
-    <input id="setEndButton" type="button" value="0:00:00 ⊣">
-    <input id="testEmbed" type="button" value="Попередний перегляд">
+      <div id="timeControls" class="flex-center">
+          <input id="setStartButton" type="button" value="⊢ 0:00:00"></input>
+          <input id="setEndButton" type="button" value="0:00:00 ⊣"></input>
+      </div>
+      <div id="embedControls" class="flex-center">
+          <input id="testEmbed" type="button" value="Попередний перегляд"></input>
+      </div>
 
   </div>
   <!--  <div>
