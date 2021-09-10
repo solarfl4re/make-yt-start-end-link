@@ -152,7 +152,7 @@ function embedVideo() {
 }
 
 function getEmbedCode() {
-    return `<iframe width="560" height="315" src="https://www.youtube.com/embed/${yVideo.vID}?start=${yVideo.Start}&end=${yVideo.End}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
+    return `<iframe width="560" height="315" src="https://www.youtube.com/embed/${yVideo.vID}?start=${yVideo.Start}&end=${yVideo.End}" playsinline="1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
 }
 
 window.addEventListener('load', setup);
