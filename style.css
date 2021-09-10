@@ -26,12 +26,12 @@ body {
   word-break: break-word;
   font-family: 'Avenir Next', 'HelveticaNeue-Light', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-size: 1.15em;
-  line-height: 1.6;
+  line-height: 2em;
 }
 
 input {
     font-size: 1em;
-    margin-right: 0.5em;
+    margin: 0.5em;
 }
 
 iframe {
@@ -50,8 +50,9 @@ form {
     flex: 2;
 }
 
-#controls, #embed {
+#controls, #embed, #ytUrlForm {
     display: flex;
+    flex-wrap: wrap;
     align-items: stretch;
     justify-content: center;
 }
@@ -60,7 +61,7 @@ form {
     margin: 1em;
 }
 
-#container {
+#content {
     width: 100%;
     margin-left: auto;
     margin-right: auto;

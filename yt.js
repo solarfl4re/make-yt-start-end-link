@@ -103,13 +103,13 @@ function setTime(event) {
     //}
 
     // Update the displayed start or end
-    this.value = `${t.getUTCHours()}:${padString(t.getUTCMinutes())}:${padString(t.getUTCSeconds())}`;
+    let newt = `${t.getUTCHours()}:${padString(t.getUTCMinutes())}:${padString(t.getUTCSeconds())}`;
 
     if (this['id'] == 'setStartButton') {
-        this.value = ('⊢' + this.value);
+        this.value = ('⊢' + newt);
         n = 'Start';
     } else {
-        this.value = (this.value + '⊣');
+        this.value = (newt + '⊣');
         n = 'End';
     }
 
