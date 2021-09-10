@@ -48,6 +48,7 @@ function onYouTubeIframeAPIReady() {
     player = new YT.Player('player', {
         height: '390',
         width: '640',
+        playsinline: '1',
     });
 }
 
